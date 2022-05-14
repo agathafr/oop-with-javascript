@@ -1,4 +1,4 @@
-import { Customer } from "./Custumer.js";
+import { Customer } from "./Customer.js";
 import { CurrentAccount } from "./CurrentAccount.js";
  
 const customer1 = new Customer();
@@ -11,14 +11,18 @@ customer2.cpf = 88822233309;
 
 const currentAccountRicardo = new CurrentAccount();
 currentAccountRicardo.agency = 1001;
+currentAccountRicardo.customer = customer1;
 
-currentAccountRicardo.deposit(100);
-currentAccountRicardo.deposit(200);
-currentAccountRicardo.deposit(300);
+const currentAccountAlice = new CurrentAccount();
+currentAccountAlice.agency = 1002;
+currentAccountAlice.customer = customer2;
 
-const moneyWithdrawal = currentAccountRicardo.withdrawal(50);
-console.log(moneyWithdrawal);
+currentAccountAlice.deposit(100);
+const result = currentAccountAlice.transfer(150, currentAccountRicardo);
 
+console.log(currentAccountAlice, result);
 console.log(currentAccountRicardo);
+
+
 
 //ctrl + alt  changes multiple lines at once
