@@ -12,6 +12,12 @@ class CurrentAccount {
       this.balance -= money;
     }
   }
+
+  deposit(money) {
+    if (money > 0) {
+      this.balance += money;
+    }
+  }
 }
 
 const customer1 = new Customer();
@@ -29,7 +35,9 @@ currentAccountRicardo.agency = 1001;
 
 console.log(currentAccountRicardo.balance);
 
-currentAccountRicardo.balance += 100;
+currentAccountRicardo.deposit(100);
+currentAccountRicardo.deposit(200);
+currentAccountRicardo.deposit(-1);
 
 console.log(currentAccountRicardo.balance);
 currentAccountRicardo.withdrawal(200);
