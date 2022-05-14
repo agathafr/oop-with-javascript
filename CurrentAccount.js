@@ -21,8 +21,8 @@ export class CurrentAccount {
     if(money < 0 || money > this._balance) {
       return "Insufficient money for transfer";
     } else {
-      this._balance -= money;
-      targetAccount._balance += money;
+      const withdrawnValue = this.withdrawal(money);
+      targetAccount.deposit(withdrawnValue);
     }
   }
 
