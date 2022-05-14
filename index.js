@@ -5,18 +5,19 @@ class Customer {
 
 class CurrentAccount {
   agency;
-  balance;
+  //# https://github.com/tc39/proposal-class-fields#private-fields
+  _balance = 0;
 
   withdrawal(money) {
-    if (this.balance >= money) {
-      this.balance -= money;
+    if (this._balance >= money) {
+      this._balance -= money;
+      return money;
     }
   }
 
   deposit(money) {
-    if (money > 0) {
-      this.balance += money;
-    }
+    if (money <= 0) return;
+    this._balance += money;
   }
 }
 
@@ -29,22 +30,15 @@ customer2.name = "Alice";
 customer2.cpf = 88822233309;
 
 const currentAccountRicardo = new CurrentAccount();
-
-currentAccountRicardo.balance = 0;
 currentAccountRicardo.agency = 1001;
-
-console.log(currentAccountRicardo.balance);
 
 currentAccountRicardo.deposit(100);
 currentAccountRicardo.deposit(200);
-currentAccountRicardo.deposit(-1);
+currentAccountRicardo.deposit(300);
 
-console.log(currentAccountRicardo.balance);
-currentAccountRicardo.withdrawal(200);
+const moneyWithdrawal = currentAccountRicardo.withdrawal(50);
+console.log(moneyWithdrawal);
 
-console.log(currentAccountRicardo.balance);
-
-console.log(customer1);
-console.log(customer2);
+console.log(currentAccountRicardo);
 
 //ctrl + alt  changes multiple lines at once
