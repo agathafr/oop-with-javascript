@@ -1,3 +1,6 @@
+import { Customer } from "./Custumer.js";
+import { CurrentAccount } from "./CurrentAccount.js";
+ 
 const customer1 = new Customer();
 customer1.name = "Ricardo";
 customer1.cpf = 11122233309;

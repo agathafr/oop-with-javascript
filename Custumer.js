@@ -1,4 +1,4 @@
-class Customer {
+export class Customer {
   name;
   cpf;
 }
