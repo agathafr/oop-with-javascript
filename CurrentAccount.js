@@ -1,9 +1,25 @@
+import { Customer } from "./Customer.js";
 export class CurrentAccount {
   agency;
-  customer;
   
   //# https://github.com/tc39/proposal-class-fields#private-fields
+  _customer;
+
+  set customer(newValue) {
+    if(newValue instanceof Customer) {
+      this._customer = newValue;
+    }
+  }
+
+  get customer() {
+    return this._customer;
+  }
+
   _balance = 0;
+
+  get balance() {
+    return this._balance;
+  }
 
   withdrawal(money) {
     if (this._balance >= money) {

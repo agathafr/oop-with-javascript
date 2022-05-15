@@ -20,8 +20,8 @@ currentAccountAlice.customer = customer2;
 currentAccountAlice.deposit(100);
 const result = currentAccountAlice.transfer(50, currentAccountRicardo);
 
-console.log(currentAccountAlice, result);
-console.log(currentAccountRicardo);
+console.log(currentAccountAlice.balance);
+console.log(currentAccountRicardo.balance);
 
 
 
