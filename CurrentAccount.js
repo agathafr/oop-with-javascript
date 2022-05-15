@@ -1,10 +1,12 @@
 import { Customer } from "./Customer.js";
 export class CurrentAccount {
+  static numberOfAccounts = 0;
   agency;
   
   //# https://github.com/tc39/proposal-class-fields#private-fields
   _customer;
-
+  _balance = 0;
+  
   set customer(newValue) {
     if(newValue instanceof Customer) {
       this._customer = newValue;
@@ -15,10 +17,16 @@ export class CurrentAccount {
     return this._customer;
   }
 
-  _balance = 0;
-
   get balance() {
     return this._balance;
+  }
+
+  constructor(agency, customer) {
+    this.customer = customer;
+    this.agency = agency;
+
+    CurrentAccount.numberOfAccounts += 1;
+
   }
 
   withdrawal(money) {
