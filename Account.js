@@ -1,12 +1,12 @@
 export class Account {
   constructor(initialBalance, client, agency) {
+    if(this.constructor == Account) {
+      throw new Error("You should not instantiate an account-type object directly!");
+    }
+
     this._balance = initialBalance;
     this._client = client;
     this._agency = agency;
-
-    if(this.constructor == Account) {
-      console.log("You should not instantiate an account-type object");
-    }
   }
 
   set customer(newValue) {
