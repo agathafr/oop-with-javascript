@@ -1,5 +1,5 @@
 export class Customer {
-   get cpf() {
+  get cpf() {
     return this._cpf;
   }
 
@@ -7,5 +7,4 @@ export class Customer {
     this.name = name;
     this._cpf = cpf;
   }
-
 }
