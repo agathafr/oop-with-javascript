@@ -21,11 +21,17 @@ export class Account {
 
   withdrawal(money) {
     let tax = 1;
+    return this._withdrawal(money, tax);
+  }
+
+  _withdrawal(money, tax) {
     const moneyWithdrawal = tax * money;
     if (this._balance >= moneyWithdrawal) {
       this._balance -= moneyWithdrawal;
       return moneyWithdrawal;
     }
+
+    return 0;
   }
 
   deposit(money) {

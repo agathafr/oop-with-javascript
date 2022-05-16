@@ -8,13 +8,10 @@ export class CurrentAccount extends Account{
     CurrentAccount.numberOfAccounts += 1;
   }
 
+  // overrides the behavior of withdrawing money from the mother class
   withdrawal(money) {
     let tax = 1.1;
-    const moneyWithdrawal = tax * money;
-    if (this._balance >= moneyWithdrawal) {
-      this._balance -= moneyWithdrawal;
-      return moneyWithdrawal;
-    }
+    return this._withdrawal(money, tax);
   }
 }
   //# https://github.com/tc39/proposal-class-fields#private-fields
