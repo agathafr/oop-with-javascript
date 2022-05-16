@@ -20,9 +20,11 @@ export class Account {
   }
 
   withdrawal(money) {
-    if (this._balance >= money) {
-      this._balance -= money;
-      return money;
+    let tax = 1;
+    const moneyWithdrawal = tax * money;
+    if (this._balance >= moneyWithdrawal) {
+      this._balance -= moneyWithdrawal;
+      return moneyWithdrawal;
     }
   }
 

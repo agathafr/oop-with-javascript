@@ -7,8 +7,10 @@ const customer = new Customer("Alice", 88822233309);
 const currentAccountAlice = new CurrentAccount(customer, 1001);
 
 currentAccountAlice.deposit(400);
+currentAccountAlice.withdrawal(100);
 
 const savingsAccount = new SavingsAccount(700, customer, 1001);
+savingsAccount.withdrawal(10);
 
 console.log(savingsAccount);
 console.log(currentAccountAlice);

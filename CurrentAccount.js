@@ -7,5 +7,14 @@ export class CurrentAccount extends Account{
     super(0, customer, agency);
     CurrentAccount.numberOfAccounts += 1;
   }
+
+  withdrawal(money) {
+    let tax = 1.1;
+    const moneyWithdrawal = tax * money;
+    if (this._balance >= moneyWithdrawal) {
+      this._balance -= moneyWithdrawal;
+      return moneyWithdrawal;
+    }
+  }
 }
   //# https://github.com/tc39/proposal-class-fields#private-fields
