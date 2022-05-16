@@ -1,17 +1,16 @@
 import { Customer } from "./Customer.js";
 import { CurrentAccount } from "./CurrentAccount.js";
- 
-const customer1 = new Customer("Ricardo", 11122233309);
+import { SavingsAccount } from "./SavingsAccount.js";
 
-const customer2 = new Customer("Alice", 88822233309);
+const customer = new Customer("Alice", 88822233309);
 
-const currentAccountRicardo = new CurrentAccount(1001, customer1);
+const currentAccountAlice = new CurrentAccount(customer, 1001);
 
-const currentAccountAlice = new CurrentAccount(1002, customer2);
+currentAccountAlice.deposit(400);
 
-currentAccountAlice.deposit(100);
-const result = currentAccountAlice.transfer(20, currentAccountRicardo);
+const savingsAccount = new SavingsAccount(700, customer, 1001);
 
-console.log(CurrentAccount.numberOfAccounts);
+console.log(savingsAccount);
+console.log(currentAccountAlice);
 
 //ctrl + alt  changes multiple lines at once
