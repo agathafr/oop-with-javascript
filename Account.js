@@ -3,6 +3,10 @@ export class Account {
     this._balance = initialBalance;
     this._client = client;
     this._agency = agency;
+
+    if(this.constructor == Account) {
+      console.log("You should not instantiate an account-type object");
+    }
   }
 
   set customer(newValue) {
