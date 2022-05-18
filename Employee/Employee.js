@@ -5,5 +5,10 @@ export class Employee {
     this._cpf = cpf;
 
     this._bonus = 1;
+    this._password;
+  }
+
+  registerPassword (password) {
+    this._password = password;
   }
 }
